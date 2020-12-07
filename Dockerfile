@@ -8,4 +8,5 @@ FROM openjdk:8-alpine
 COPY --from=build /app/src/build/libs/rest-service-0.0.1-SNAPSHOT.jar /usr/local/app/
 WORKDIR /usr/local/app/
 ENV MOJE_TEST_ENV=defaultnihodnota
+RUN apk --no-cache add bash curl
 ENTRYPOINT ["java", "-jar", "rest-service-0.0.1-SNAPSHOT.jar"]
